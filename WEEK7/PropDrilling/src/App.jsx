@@ -5,19 +5,26 @@ function App() {
   const [count, setCount] = useState(10);
 
   return (
-    <div>
-      <DataContext.Provider value={{count,setCount}}>
-        <Count count={count} setCount={setCount} />
-      </DataContext.Provider>
+    <div className="bg-gray-950 text-white h-screen w-screen  items-center relative">
+      <div className="bg-gray-900 sm:mx-16 max-sm:mx-4 lg:mx-24 h-full items-center">
+        <DataContext.Provider value={{ count, setCount }} >
+          <Count />
+        </DataContext.Provider>
+
+        
+        
+
+      </div>
+      
       
     </div>
   )
 }
 
-function Count({setCount }) {
-  return <div>
+function Count() {
+  return <div className="flex flex-col items-center justify-center">
     <CountRenderer  />
-    <Buttons  setCount={setCount} />
+    <Buttons   />
   </div>
 }
 
@@ -31,11 +38,13 @@ function CountRenderer() {
 function Buttons() {
   const {count,setCount}=useContext(DataContext)
   return <div>
-    <button onClick={() => {
+    <button className="px-4 py-2  rounded-sm mx-2 text-center text-2xl bg-blue-900"
+      onClick={() => {
       setCount(count + 1)
     }}>Increase</button>
 
-    <button onClick={() => {
+    <button className="px-4 py-2  rounded-sm mx-2 text-center text-2xl bg-blue-900" 
+      onClick={() => {
       setCount(count - 1)
     }}>Decrease</button>
   </div>
