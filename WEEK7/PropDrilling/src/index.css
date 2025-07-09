@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+
+.animate{
+    animation-duration: 3000ms;
+    animation-direction: alternate;
+}

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { DataContext } from "./context/Context";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [count, setCount] = useState(10);
@@ -10,11 +11,13 @@ function App() {
         <DataContext.Provider value={{ count, setCount }} >
           <Count />
         </DataContext.Provider>
+        
 
         
         
-
+        <TodoList/>
       </div>
+      
       
       
     </div>
@@ -37,16 +40,17 @@ function CountRenderer() {
 
 function Buttons() {
   const {count,setCount}=useContext(DataContext)
-  return <div>
-    <button className="px-4 py-2  rounded-sm mx-2 text-center text-2xl bg-blue-900"
+  return <div className="flex flex-col items-center gap-4">
+    <button className="px-4 py-2  rounded-sm mx-2 text-center text-2xl bg-blue-900 h-10 w-35"
       onClick={() => {
       setCount(count + 1)
     }}>Increase</button>
 
-    <button className="px-4 py-2  rounded-sm mx-2 text-center text-2xl bg-blue-900" 
+    <button className="px-4 py-2  rounded-sm mx-2 text-center text-2xl bg-blue-900 h-10 w-35" 
       onClick={() => {
       setCount(count - 1)
-    }}>Decrease</button>
+      }}>Decrease</button>
+    
   </div>
 }
 
