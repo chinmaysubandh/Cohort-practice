@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
+import { useRecoilState } from 'recoil';
 
 const TodoList = () => {
-  const [todo, setTodo] = useState([{
-    id: 1,
-    title: "ak;ljdf",
-    description: "dess mdss djdjdjs dsljfl;selkfj sdlkfhalsdhfkjadhfkjahdjkfh djahfkjasjdhf",
-    markdone:false
-  }])
+  const [todo, setTodo] = useState([])
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-
-  const isDone = (id) => {
-    
+ 
+  const toogleDone = (id) => {
+    setTodo(
+      todo.map((item)=>item.id == id ?{...todo,markdone:!item.markdone}:item)
+    )
+  }
+  const DeleteHandler = (id) => {
+    setTodo(todo.filter((i)=>i.id !==id))
   }
 
   const Handler = (e) => {
@@ -43,13 +44,15 @@ e.preventDefault()
         <div>
           {todo.map((e) => (
             <div key={e.id} className={`grid grid-cols-12 py-2 px-4 my-2 gap-8 items-center ${e.markdone == true ? 'bg-green-800':'bg-gray-800'} rounded-3xl`}  >
-              <input className='col-span-2' type="checkbox" onClick={()=>setTodo(markdone==false ? true :false)} />
+              <input className='col-span-2' type="checkbox"
+                checked={e.markdone}
+                onChange={() => toogleDone(e.id)} />
               <div className='col-span-8'>
                 <h1>Title{e.title}</h1>
                 <h3>Description:{e.description}</h3>
               </div>
               
-              <button className='px-4 py-2 bg-red-900 col-span-2 text-white font-semibold rounded-4xl' onClick={()=>{}}>{e.markdone == true?"remove":"Delete"}</button>
+              <button className='px-4 py-2 bg-red-900 col-span-2 text-white font-semibold rounded-4xl' onClick={()=>DeleteHandler(e.id)}>{e.markdone == true?"remove":"Delete"}</button>
 
             </div>
           ))}
