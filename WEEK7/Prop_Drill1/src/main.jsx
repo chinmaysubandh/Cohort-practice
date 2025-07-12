@@ -5,10 +5,9 @@ import App from './App.jsx'
 import { RecoilRoot } from 'recoil'
 
 createRoot(document.getElementById('root')).render(
-
-  <RecoilRoot>
-    <App />
-  </RecoilRoot>
-  
-
+  <StrictMode>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+  </StrictMode>,
 )

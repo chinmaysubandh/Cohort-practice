@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil';
+import { TodoAtom } from '../store/atoms/count';
 
 const TodoList = () => {
-  const [todo, setTodo] = useState([])
+  const [todo, setTodo] = useRecoilState(TodoAtom)
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
  
   const toogleDone = (id) => {
     setTodo(
-      todo.map((item)=>item.id == id ?{...todo,markdone:!item.markdone}:item)
-    )
-  }
+      todo.map((item) =>
+        item.id === id ? { ...item, markdone: !item.markdone } : item
+      )
+    );
+  };
+
   const DeleteHandler = (id) => {
     setTodo(todo.filter((i)=>i.id !==id))
   }
