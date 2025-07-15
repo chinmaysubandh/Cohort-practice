@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { CountAtom } from "../store/atoms/count";
+import { CountAtom, EvenCount } from "../store/atoms/count";
 
 export default function Count() {
     console.log("re-render");
@@ -14,10 +14,12 @@ export default function Count() {
 function CountRenderer() {
 
     const count = useRecoilValue(CountAtom);
+    const even = useRecoilValue(EvenCount);
 
 
     return <div>
         {count}
+        <h1 className="max-h-5 w-auto">Even number {even }</h1>
     </div>;
 }
 

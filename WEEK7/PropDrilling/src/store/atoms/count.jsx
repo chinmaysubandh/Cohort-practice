@@ -1,10 +1,24 @@
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 
 export const CountAtom = atom({
     key: 'CountAtom',
     default:0,
 })
+export const EvenCount = selector({
+    key: "evenvalue",
+    get: ({ get }) => {
+        const even = get(CountAtom);
+        if (even % 2 === 0) {
+           return even
+        } else {
+            console.log("oddd value"+even);
+            
+            return <div> NOne</div>
+       }
 
+    
+    }
+})
 export const TodoAtom = atom({
     key: "TodoKey",
     default: [
