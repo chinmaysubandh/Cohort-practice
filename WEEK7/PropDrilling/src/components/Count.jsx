@@ -1,8 +1,21 @@
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { CountAtom, EvenCount } from "../store/atoms/count";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Count() {
-    console.log("re-render");
+    const [data, setData] = useState([])
+    console.log(data);
+    const setdata =async () => {
+        const datasett = await axios.get('https://679a55e3747b09cdccce8867.mockapi.io/Todo');
+        setData(datasett.data)
+    }
+    useEffect(() => {
+        setdata();        
+
+    }, [])
+   
+    
     return (
         <div className="flex flex-col items-center justify-center">
             <CountRenderer />
