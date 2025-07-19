@@ -6,31 +6,14 @@ import Count from "./components/Count";
 function App() {
   
   return (
-    <div className="bg-gray-950 text-white h-screen w-screen grid grid-cols-12 lg:px-8 lg:py-2 gap-1">
-      <div className="bg-gray-900 col-span-2">
-        <select name="" id="">
-          
-          <select name="" id="">
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-          </select>
-          <select name="" id="">
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-            <option value="">option1</option>
-          </select>
-        </select>
+    <div className="bg-stone-300 text-black h-screen w-screen grid grid-cols-32 px-2 py-2 lg:px-4 lg:py-2 gap-1">
+      <div className="bg-stone-100 max-md:hidden md:col-span-4 rounded">
+        
         
       </div>
-      <div className="col-span-10 bg-gray-900"> main bar
-       
+      <div className="md:col-span-28 max-md:col-span-32 bg-stone-100 rounded relative grid grid-rows-12 "> 
+        <div className="bg-gray-50 my-1 mx-1 rounded row-span-2  ">ss</div>
+        <div className="bg-blue-50 my-1 mx-1 rounded row-span-10 overflow-y-auto">ss</div>
       </div>
     </div>
   );
