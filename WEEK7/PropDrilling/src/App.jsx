@@ -9,8 +9,10 @@ import About from "./pages/About";
 import SideBar from "./components/SideBar";
 import Team from "./pages/Team";
 import Finance from "./pages/Finance";
+import { useState } from "react";
 
 function App() {
+  
 
 
   return (
@@ -27,7 +29,8 @@ function App() {
             <Route path='/accounts' element={<Accounts />} />
             <Route path='/about' element={<About />} />
             <Route path='/team' element={<Team />} />
-            <Route path="/finance" element={<Finance/>} />
+            <Route path="/finance" element={<Finance />} />
+            <Route path="/team/todo" element={<TodoList/>} />
 
           </Routes>
         </div>
