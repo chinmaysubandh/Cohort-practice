@@ -19,29 +19,36 @@ const SideBar = () => {
     }
     
     return (
-        <div className='h-full w-full bg-stone-200 rounded flex flex-col justify-between items-center py-1'>
+        <div className='h-full w-full bg-stone-200 rounded flex flex-col justify-between items-center py-1 absolute'>
 
-            <div className='w-full h-[10%] border-b-2 border-stone-400 '>Profile</div>
+            <div className='w-full h-[10%] border-b-2 border-stone-400 relative shrink-0 overflow-hidden '>Profile</div>
 
 
             <div className=' w-full h-[80%]  flex flex-col overflow-y-scroll gap-0.5'>
+                {/* Home /Dashboard */}
                 <Link className=' flex items-center justify-start hover:bg-stone-100   mt-0.5 mx-0.5 px-0.5 py-0.5
                font-semibold rounded '
                     to={'/'}
                     onClick={Toggle}
                 ><GoHome /> Dashboard</Link>
                 {open == true ? <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
+               font-normal rounded ps-4 ' to={'/searchbar'}>- <AiOutlineTeam />SearchBar</Link> : ''}
+                {open == true ? <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-normal rounded ps-4 ' to={'/pages'}>- <AiOutlineTeam />Pages</Link> : ''}
                 {open == true ? <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-normal rounded ps-4 ' to={'/allposts'}>- <AiOutlineTeam />All Posts</Link> : ''}
+                
+                
 
 
+                {/* Accounts */}
                 <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-semibold rounded '
                     to={'/accounts'}
                 ><MdOutlineAccountCircle /> Accounts</Link>
 
 
+                {/* Team */}
                 <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-semibold rounded ' to={'/team'}
                 onClick={Toggle}
@@ -62,8 +69,11 @@ const SideBar = () => {
                 </div> :''}
                 
 
+                {/* Finance */}
                 <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-semibold rounded   ' to={'finance'}><MdOutlineAttachMoney /> Finance</Link>
+                
+                {/* About */}
                 <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-semibold rounded '
                     to={'/about'}

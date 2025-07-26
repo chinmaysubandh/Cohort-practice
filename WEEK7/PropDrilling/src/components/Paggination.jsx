@@ -1,8 +1,8 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
-const Card = ({ ID, Title, Description }) => {
+const Card = React.memo( ({ ID, Title, Description }) => {
   return (
     <div className='m-1 py-1 px-2 bg-stone-200 flex ' >
       <h1 className='p-1 rounded-full  border-gray-950'>{ID}</h1>
@@ -11,9 +11,9 @@ const Card = ({ ID, Title, Description }) => {
 
     </div>
   )
-}
+})
 
-const Paggination = () => {
+const Paggination =React.memo( () => {
   const [dataset, setDataset] = useState([]);
   const [Page, setPage] = useState(0);
 
@@ -60,7 +60,7 @@ const Paggination = () => {
     </div>
    
   )
-}
+})
 
 export default Paggination
 
