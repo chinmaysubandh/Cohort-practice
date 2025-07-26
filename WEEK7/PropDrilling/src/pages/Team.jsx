@@ -6,7 +6,7 @@ import { TodoOpenHandle } from '../store/atoms/TodoOpen'
 const Team = () => {
   const openTodo =useRecoilValue(TodoOpenHandle)
   return (
-    <div className='w-full h-full bg-fuchsia-200'>Team
+    <div className='w-full h-full '>Team
       {openTodo == true ? <TodoList />:''}
     </div>
   )
