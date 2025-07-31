@@ -19,7 +19,7 @@ const Paggination =React.memo( () => {
 
   useEffect(() => {
     async function getdata() {
-      let temp = await axios.get('https://dummyjson.com/products?limit=200')
+      let temp = await axios.get('https://dummyjson.com/products?limit=400')
       return setDataset(temp.data.products)
 
 
@@ -27,7 +27,7 @@ const Paggination =React.memo( () => {
     getdata();
   }, [])
   
-  const PAGE_Size = 10;
+  const PAGE_Size = 40;
   const Total_pages = Math.ceil(dataset.length / PAGE_Size)
   const Start = Page * PAGE_Size;
   const End = Start + PAGE_Size
@@ -39,11 +39,11 @@ const Paggination =React.memo( () => {
   return (
     <div className='w-full h-full absolute   '>
       
-      <div className='   grid-rows-12  '>
-        <div className=' row-span-2'>
+      <div className='   grid-rows-12 w-full h-full flex flex-col items-center  '>
+        <div className=' row-span-2 flex items-center justify-center gap-2'>
 
           {[...Array(Total_pages).keys()].map((items, index) => {
-            return <span className='p-1 m-1 border-1 cursor-pointer ' onClick={() => {
+            return <span className={` m-1 border-1 cursor-pointer px-2 rounded-2xl ${index === Page ? 'bg-green-300':''}`} onClick={() => {
               setPage(index)
             }} key={index}>{items}</span>
 
@@ -51,7 +51,7 @@ const Paggination =React.memo( () => {
         </div>
 
 
-        <div className='row-span-10 overflow-y-scroll'>
+        <div className='row-span-10 items-center justify-center grid grid-cols-4 mx-4'>
           {dataset.slice(Start, End).map(item => <Card key={item.id} ID={item.id} Title={item.title} Description={item.description} />
           )}
         </div>

@@ -36,8 +36,8 @@ const SearchBar = () => {
     
     
   return (
-      <div className='h-full w-full bg-slate-50 overflow-hidden'>
-          <div className='flex flex-col items-center'>
+      <div className='h-full w-full relative bg-slate-50 '>
+          <div className='flex flex-col items-center relative'>
               <h1 className='text-3xl font-bold'>Search Bar</h1>
               <div className=' w-full h-full py-2 px-4 flex flex-col items-center justify-center'>
                   
@@ -52,12 +52,12 @@ const SearchBar = () => {
                   </div>
                   
               </div>
-              <div className=' col-span-1 overflow-scroll'>
+              <div className='grid grid-cols-4 col-span-1'>
                   {filteredItems.length === 0 ? (
                       <div>No matching results</div>
                   ) : (
                       filteredItems.map((e) => (
-                          <div key={e.id}>
+                          <div key={e.id} className=' bg-green-300 m-1 py-2 px-4'>
                               {e.title}
                           </div>
                       ))
