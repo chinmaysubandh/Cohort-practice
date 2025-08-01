@@ -13,6 +13,8 @@ import { useState } from "react";
 import Paggination from "./components/Paggination";
 import AllPosts from "./components/AllPosts";
 import SearchBar from "./components/SearchBar";
+import MiniProjects from "./pages/MiniProjects";
+import TodoApp from "./components/MiniProjects/TodoApp";
 
 function App() {
 
@@ -42,6 +44,10 @@ function App() {
             <Route path="/team/todo" element={<TodoList />} />
             {/* Finance */}
             <Route path="/finance" element={<Finance />} />
+
+            {/* MiniProjects */}
+            <Route path="/miniprojects" element={<MiniProjects />} />
+            <Route path="/miniprojects/todoapp" element={<TodoApp/>}/>
 
 
           </Routes>

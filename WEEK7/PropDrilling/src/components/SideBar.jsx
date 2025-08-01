@@ -6,9 +6,39 @@ import { VscInfo } from 'react-icons/vsc'
 import { Link } from 'react-router-dom'
 
 import { BsChatSquare } from 'react-icons/bs'
+import { GrProjects } from 'react-icons/gr'
+
+
+
+const MiniprojectElements = [{
+    MiniProjectsList: {
+        name: "Mini Projects",
+        Projecttoggle: false ,
+        path: '/miniprojects',
+        minielements: [
+            {
+                mininame: "Todo App",
+                path: "/miniprojects/todoapp"  
+            },
+            {
+                mininame: "Weather App",
+                path: "/miniprojects/todoapp"  
+            },
+            {
+                mininame: "Tasks App",
+                path: "/miniprojects/todoapp"  
+            },
+            {
+                mininame: "Chat App",
+                path: "/miniprojects/todoapp"  
+            }
+        ]
+     }
+},]
 
 const SideBar = () => {
     const [open, setOpen] = useState(false);
+    const[miniProjecttogle,setMiniProjecttogle]=useState(false)
     
     const Toggle = () => {
         if (open === false) {
@@ -71,7 +101,25 @@ const SideBar = () => {
 
                 {/* Finance */}
                 <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
-               font-semibold rounded   ' to={'finance'}><MdOutlineAttachMoney /> Finance</Link>
+               font-semibold rounded   ' to={'/finance'}><MdOutlineAttachMoney /> Finance</Link>
+                
+                {/* MiniProjects */}
+                {MiniprojectElements.map((items, index) => {
+                    return <Link key={index} onClick={()=>setMiniProjecttogle(miniProjecttogle === false ? true : false)} className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
+               font-semibold rounded ' to={items.MiniProjectsList.path}><GrProjects className=' m-0.5 pe-1' />{items.MiniProjectsList.name}
+                    </Link>
+                })}
+                {MiniprojectElements.map((items, index) => {
+                    console.log(items.MiniProjectsList.Projecttoggle);
+                    
+                    return <div key={index} className='flex flex-col ps-2 px-2'>
+                        {miniProjecttogle === true ? items.MiniProjectsList.minielements.map((miniitems, index) => {
+                            return <Link to={miniitems.path} key={index}>{miniitems.mininame}</Link>
+                        }) :null}
+
+                    </div>
+                })}
+
                 
                 {/* About */}
                 <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
