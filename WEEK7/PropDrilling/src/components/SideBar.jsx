@@ -38,6 +38,7 @@ const MiniprojectElements = [{
 
 const SideBar = () => {
     const [open, setOpen] = useState(false);
+    const[teamtoggle,setTeamtoggle]=useState(false)
     const[miniProjecttogle,setMiniProjecttogle]=useState(false)
     
     const Toggle = () => {
@@ -81,9 +82,9 @@ const SideBar = () => {
                 {/* Team */}
                 <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-semibold rounded ' to={'/team'}
-                onClick={Toggle}
+                onClick={()=>setTeamtoggle(teamtoggle === false ? true : false)}
                 ><AiOutlineTeam /> Team</Link>
-                {open == true ? <div>
+                {teamtoggle == true ? <div>
                     <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5
                font-normal rounded ps-4 ' to={'/team/todo'}>- <BsChatSquare />Chat Rooms</Link>
                     <Link className='  hover:bg-stone-100 flex items-center justify-start  mt-0.5 mx-0.5 px-0.5 py-0.5

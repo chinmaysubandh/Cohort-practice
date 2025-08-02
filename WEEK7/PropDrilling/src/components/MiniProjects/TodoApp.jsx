@@ -2,7 +2,7 @@ import React from 'react'
 
 const TodoApp = () => {
   return (
-    <div>TodoApp</div>
+    <div className='w-full h-full absolute flex flex-col items-center'>TodoApp</div>
   )
 }
 

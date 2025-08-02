@@ -52,17 +52,20 @@ const SearchBar = () => {
                   </div>
                   
               </div>
-              <div className='grid grid-cols-4 col-span-1'>
-                  {filteredItems.length === 0 ? (
-                      <div>No matching results</div>
-                  ) : (
-                      filteredItems.map((e) => (
-                          <div key={e.id} className=' bg-green-300 m-1 py-2 px-4'>
-                              {e.title}
-                          </div>
-                      ))
-                  )}
+              <div className='h-full w-full relative'>
+                  <div className='grid grid-cols-4 grid-rows-2  col-span-1 absolute'>
+                      {filteredItems.length === 0 ? (
+                          <div>No matching results</div>
+                      ) : (
+                          filteredItems.map((e) => (
+                              <div key={e.id} className=' bg-green-300 m-1 py-2 px-4'>
+                                  {e.title}
+                              </div>
+                          ))
+                      )}
+                  </div>
               </div>
+              
               
               
           </div>
