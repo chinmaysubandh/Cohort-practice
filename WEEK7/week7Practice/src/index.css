@@ -5,9 +5,7 @@
     @apply bg-gray-950
   }
 }
-body{
-  background-color: #030712;
-}
+
 body::-webkit-scrollbar{
   display: none;
 }
