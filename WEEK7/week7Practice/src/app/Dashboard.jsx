@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import { CgProfile } from 'react-icons/cg'
+import Navbar from '../components/Navbar'
 
 const Dashboard = () => {
   return (
@@ -18,8 +19,12 @@ const Dashboard = () => {
 
       </div>
       {/* Right */}
-      <div className='className="w-[86%] md:w-[92%] lg:w-[84%] xl:w-[86%] bg-amber-400  overflow-y-scroll flex flex-col border border-s-gray-100 "'>
-        <Outlet />
+      <div className='className="w-[86%] md:w-[92%] lg:w-[84%] xl:w-[86%]  flex flex-col border border-s-gray-100 "'>
+        <Navbar />
+        <div className='w-full h-[90%] overflow-y-auto scroll-smooth'>
+          <Outlet />
+        </div>
+        
       </div>
     </div>
   )

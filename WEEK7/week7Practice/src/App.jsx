@@ -8,6 +8,8 @@ import Calender from './pages/Calender';
 import Messages from './pages/Messages';
 import Documents from './pages/Documents';
 import Profile from './pages/Profile';
+import MiniProjects from './pages/MiniProjects';
+import TodoApp from './components/MiniProjects/TodoApp';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,16 @@ const router = createBrowserRouter([
         element: <Profile />
 
       },
+      {
+        path: '/projects',
+        element: <MiniProjects />,
+        children: [
+          {
+            path: '/projects/todoapp',
+            element : <TodoApp/>
+          },
+        ]
+      }
 
     ]
   }
