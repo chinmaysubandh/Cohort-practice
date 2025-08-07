@@ -18,3 +18,7 @@ export const getTodoData = () => {
 export const deleteTodoData = (id) => {
     return api.delete(`/Todo/${id}`)
 }
+
+export const PostTodoData = (TodoPost) => {
+    return api.post('/Todo',TodoPost)
+}
