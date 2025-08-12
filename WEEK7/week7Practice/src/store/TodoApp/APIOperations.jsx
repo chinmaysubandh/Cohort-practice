@@ -22,3 +22,6 @@ export const deleteTodoData = (id) => {
 export const PostTodoData = (TodoPost) => {
     return api.post('/Todo',TodoPost)
 }
+export const PutTodoData = (id) => {
+    return api.put(`/Todo/${id}`)
+}

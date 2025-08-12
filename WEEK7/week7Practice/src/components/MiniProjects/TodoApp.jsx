@@ -5,12 +5,13 @@ import { useRecoilState, useRecoilState_TRANSITION_SUPPORT_UNSTABLE, useResetRec
 
 const TodoApp = () => {
     const [EditShow, setEditShow] = useRecoilState_TRANSITION_SUPPORT_UNSTABLE(TodoAppContext)
-    const [TodoData, setTodoData] = useState([])
+    const [TodoData, setTodoData] = useState([]);
+    const [UpdateTodoData, setUpdateTodoData] = useState({});
     const [Input1, setInput1] = useState('');
     const [Input2, setInput2] = useState('');
 
-    const RID = Math.ceil(Math.random() * 10 + Math.random()) +1;
-    console.log(RID);
+    const RID = Math.ceil(Math.random() * 10 + Math.random()) + 1;
+    
     
     
     
@@ -24,6 +25,13 @@ const TodoApp = () => {
         await PostTodoData(TodoPost)
         setTodoData([...TodoData, TodoPost])
 
+        setInput1('')
+        setInput2('')
+
+    }
+    const UpdateTodo = (item) => {
+        setEditShow(EditShow === false ? true : false)
+        setUpdateTodoData(item)
     }
 
     const GetData = async () => {
@@ -68,8 +76,9 @@ const TodoApp = () => {
                     onClick={ InputHandle}
                 >Submit</button>
             </div>
+            {EditShow === true ? <EditCard /> : null}
             <div className='flex flex-col items-center justify-baseline gap-4 py-4 px-4 w-full overflow-y-auto'>
-                {EditShow === true ? <EditCard /> : null}
+                
 
 
 
@@ -85,7 +94,7 @@ const TodoApp = () => {
                         </div>
                         <div className='flex flex-col gap-4 items-center justify-center  px-4'>
                             <button className='px-4 py-2  flex items-center justify-center hover:bg-green-600  bg-green-500 content-center rounded-2xl'
-                                onClick={() => setEditShow(EditShow === false && item.id == item.id ? true : false)}
+                                onClick={() => UpdateTodo(item) }
                             >Edit</button>
                             <button className='px-4 py-2  flex items-center justify-center hover:bg-red-600  bg-red-500 content-center rounded-2xl'
                                 onClick={() => DeleteTodo(item.id)}
@@ -101,9 +110,10 @@ const TodoApp = () => {
 export default TodoApp
 
 export const EditCard = memo(() => {
+    const[UpdateTodoData,setUpdateTodoData]=useState({})
     const[CancleEdit,setCancleEdit]=useRecoilState_TRANSITION_SUPPORT_UNSTABLE(TodoAppContext)
 
-    return <div className=' h-2/5 absolute top-20  z-40 rounded-2xl bg-slate-200 flex flex-col items-center justify-between py-4 px-2'>
+    return <div className=' h-2/5 w-1/2 absolute top-20  z-40 rounded-2xl bg-slate-200 flex flex-col items-center justify-between py-4 px-2'>
         <h4>Edit Post</h4>
         <div className='flex flex-col items-center justify-center gap-4'>
             <h3>Title:</h3>
