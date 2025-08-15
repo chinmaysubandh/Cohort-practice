@@ -1,4 +1,4 @@
-let a = "12.220";
+let a = [2,34,322];
 
 switch (typeof a) {
     case "number":
@@ -6,6 +6,14 @@ switch (typeof a) {
         break;
     case 'boolean':
         console.log("boolean");
+        break;
+
+    case 'string':
+        console.log("String");
+        break;
+    
+    case 'object':
+        console.log('Arrays');
         break;
         
 
