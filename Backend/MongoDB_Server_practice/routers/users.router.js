@@ -26,6 +26,7 @@ UserRouter.get('/:username', async(req, res) => {
 UserRouter.post('/',async (req, res) => {
     const userbody = req.body;
     const newUser = new UserDB({
+        userid:userbody.userid,
         username:userbody.username,
         email:userbody.email,
         age:userbody.age,
@@ -42,4 +43,12 @@ UserRouter.put('/', async(req, res) => {
     const { email } = req.body;
     const result =await UserDB.find({ email });
     res.json({result})
+})
+
+//Delete User 
+UserRouter.delete('/:id', async(req, res) => {
+    const { id } = req.params;
+    await UserDB.findByIdAndDelete({ id })
+    const data = await UserDB.find({});
+    res.json({message:"user is deleted",data})
 })
