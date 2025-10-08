@@ -17,6 +17,11 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
+app.use(session({
+    secret: 'chinmay-dev',
+    resave: false,
+    saveUninitialized:false
+}))
 
 
 
@@ -28,7 +33,24 @@ app.use('/products',ProductRouter)
 
 
 
-
+//working with sessions
+/* app.get('/visits', (req, res) => {
+    if (req.session.page_views) {
+        req.session.page_views++;
+        res.send(`You have visited this page over ${req.session.page_views} times`)
+    }
+    else { 
+        req.session.page_views = 1;
+        res.send("first visit")
+    }
+    
+    
+})
+// destroy session with destroy method 
+app.get('/remove-session', (req, res) => {
+    req.session.destroy();
+    res.send('session is distroyed')
+}) */
 
 
 
